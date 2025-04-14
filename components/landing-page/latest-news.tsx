@@ -43,10 +43,10 @@ export default function LatestNews() {
         <div className="w-full px-4 lg:px-0 lg:w-[75%] mx-auto flex flex-col lg:flex-row my-5">
           {/* Left */}
           <div className="space-y-6 w-full lg:w-[80%] mr-2 mt-2">
-            <div className="flex flex-row gap-4">
-              <p className="self-center font-bold text-sm lg:text-[15px]">Berita Terbaru</p>
+            <div className="flex flex-col lg:flex-row gap-1 lg:gap-4">
+              <p className="self-center font-bold text-[16px] w-full lg:w-[25%]">Berita Terbaru</p>
               {/* Garis dengan dua warna */}
-              <div className="mt-2 h-1 w-[250px] lg:w-[700px]" style={{ background: "linear-gradient(to right, #e5e7eb 05%, #e5e7eb 10%)" }}></div>
+              <div className="mt-2 h-1 w-full" style={{ background: "linear-gradient(to right, #e5e7eb 05%, #e5e7eb 10%)" }}></div>
             </div>
             {articles.map((article, idx) => (
               <div key={idx} className="flex flex-col sm:flex-row gap-4 border-b pb-4">

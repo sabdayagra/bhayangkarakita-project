@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FiClock } from "react-icons/fi";
+import { Reveal } from "../ui/Reveal";
 
 const dummyData = [
   {
@@ -77,50 +78,54 @@ const dummyData = [
 
 export default function ThreeColumnSection() {
   return (
-    <div className="w-full px-4 lg:px-0 lg:w-[75%] mx-auto">
-      <div className="bg-[#d6d6d6] px-4 py-8">
-        <div className="grid md:grid-cols-3 gap-6 max-w-screen-xl mx-auto">
-          {dummyData.map((section, index) => (
-            <div key={index} className="bg-[#d6d6d6] p-4 shadow-sm">
-              {/* Header */}
-              <div className="mb-4 border-b pb-2">
-                <span className={`${section.color} text-white px-3 py-1 font-bold text-sm inline-block`}>{section.category}</span>
-              </div>
+    <>
+      <Reveal>
+        <div className="w-full px-4 lg:px-0 lg:w-[75%] mx-auto">
+          <div className="bg-[#d6d6d6] px-4 py-8">
+            <div className="grid md:grid-cols-3 gap-6 max-w-screen-xl mx-auto">
+              {dummyData.map((section, index) => (
+                <div key={index} className="bg-[#d6d6d6] p-4 shadow-sm">
+                  {/* Header */}
+                  <div className="mb-4 border-b pb-2">
+                    <span className={`${section.color} text-white px-3 py-1 font-bold text-sm inline-block`}>{section.category}</span>
+                  </div>
 
-              {/* Featured Article */}
-              {section.articles[0]?.image && (
-                <div className="flex gap-3 mb-3">
-                  <Image src={section.articles[0].image} alt={section.articles[0].title} width={1920} height={1080} className="w-[120px] h-[86px] object-cover rounded" />
-                  <div>
-                    <p className="text-sm font-medium">{section.articles[0].title}</p>
-                    <p className="text-xs text-gray-500 flex items-center mt-1">
-                      <FiClock className="mr-1" /> {section.articles[0].date}
-                    </p>
+                  {/* Featured Article */}
+                  {section.articles[0]?.image && (
+                    <div className="flex gap-3 mb-3">
+                      <Image src={section.articles[0].image} alt={section.articles[0].title} width={1920} height={1080} className="w-[120px] h-[86px] object-cover rounded" />
+                      <div>
+                        <p className="text-sm font-medium">{section.articles[0].title}</p>
+                        <p className="text-xs text-gray-500 flex items-center mt-1">
+                          <FiClock className="mr-1" /> {section.articles[0].date}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Other Articles */}
+                  <div className="space-y-3 text-sm">
+                    {section.articles.slice(1).map((item, idx) => (
+                      <div key={idx} className="border-t pt-3">
+                        <p>{item.title}</p>
+                        <p className="text-xs text-gray-500 mt-1 flex items-center">
+                          <FiClock className="mr-1" /> {item.date}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Pagination */}
+                  <div className="flex justify-between mt-4">
+                    <button className="bg-gray-200 text-xs px-3 py-1">&lt; PREV</button>
+                    <button className="bg-white text-xs border px-3 py-1 font-medium">NEXT &gt;</button>
                   </div>
                 </div>
-              )}
-
-              {/* Other Articles */}
-              <div className="space-y-3 text-sm">
-                {section.articles.slice(1).map((item, idx) => (
-                  <div key={idx} className="border-t pt-3">
-                    <p>{item.title}</p>
-                    <p className="text-xs text-gray-500 mt-1 flex items-center">
-                      <FiClock className="mr-1" /> {item.date}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Pagination */}
-              <div className="flex justify-between mt-4">
-                <button className="bg-gray-200 text-xs px-3 py-1">&lt; PREV</button>
-                <button className="bg-white text-xs border px-3 py-1 font-medium">NEXT &gt;</button>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </Reveal>
+    </>
   );
 }
