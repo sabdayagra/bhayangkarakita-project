@@ -46,7 +46,7 @@ export default function LatestNews() {
             <div className="flex flex-row gap-4">
               <p className="self-center font-bold text-sm lg:text-[15px]">Berita Terbaru</p>
               {/* Garis dengan dua warna */}
-              <div className="mt-2 h-1 w-[250px] lg:w-[730px]" style={{ background: "linear-gradient(to right, #e5e7eb 05%, #e5e7eb 10%)" }}></div>
+              <div className="mt-2 h-1 w-[250px] lg:w-[700px]" style={{ background: "linear-gradient(to right, #e5e7eb 05%, #e5e7eb 10%)" }}></div>
             </div>
             {articles.map((article, idx) => (
               <div key={idx} className="flex flex-col sm:flex-row gap-4 border-b pb-4">
