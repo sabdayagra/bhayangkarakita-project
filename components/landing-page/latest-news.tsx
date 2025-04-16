@@ -104,7 +104,7 @@ export default function LatestNews() {
 
           {/* Right */}
           <div className="flex flex-col gap-4 w-full lg:w-[30%]">
-            <div className="border rounded-lg w-full max-w-full lg:max-w-xs mx-auto p-4 bg-white shadow-sm">
+            <div className="border rounded-lg w-full max-w-full lg:max-w-xs mx-auto p-4 bg-white shadow-sm mt-4 lg:mt-0">
               {/* Header */}
               <div className="border-b pb-2 text-sm text-gray-700 font-medium">
                 Postingan dari <span className="font-semibold">@Polri_News</span>
